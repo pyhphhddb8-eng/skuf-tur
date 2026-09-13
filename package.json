@@ -1,0 +1,23 @@
+{
+  "name": "skuf-tur",
+  "version": "1.0.0",
+  "description": "Лендинг «Скуф-тур»",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "node tools/check.mjs",
+    "shot": "node tools/shot.mjs",
+    "og": "node tools/make-og.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": "true",
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}
