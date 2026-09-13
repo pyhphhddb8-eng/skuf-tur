@@ -256,7 +256,7 @@ p{margin:0 0 1em;max-width:58ch}          /* кириллице нужна ст�
         <h1>Два дня в горах, где от вас ничего не требуется</h1>
         <p class="lead">Забираем из центра города, привозим обратно. Группа до 25 человек. 17 000 ₽ с человека.</p>
         <a class="btn btn--tg" id="tg" href="#" rel="noopener">Написать в Телеграм</a>
-        <p class="hero__note">Черновик страницы: адрес Телеграма подставим после согласования с организатором.</p>
+        <p class="hero__note">Черновик страницы: кнопка ведёт на автора страницы, а не на организатора тура.</p>
       </div>
       <figure class="ph ph--hero" role="img" aria-label="Здесь будет фотография гор от заказчика">
         <figcaption class="ph__label">Здесь фото заказчика: горы</figcaption>
@@ -393,7 +393,7 @@ p{margin:0 0 1em;max-width:58ch}          /* кириллице нужна ст�
       <h2>Если дочитали досюда — вам, кажется, туда</h2>
       <p class="lead final__lead">Выезд из Краснодара на 2–3 дня. Ни ретрита, ни тренингов, ни отчётности перед группой.</p>
       <a class="btn btn--tg" id="tg2" href="#" rel="noopener">Написать в Телеграм</a>
-      <p class="final__honest">Часть дат и форматов Иван сообщает только в личной переписке — поэтому кнопка, а не форма. Спросить быстрее.</p>
+      <p class="final__honest">Часть дат и форматов организатор сообщает только в личной переписке — поэтому кнопка, а не форма заявки. Спросить быстрее.</p>
     </div>
   </section>
 </main>
@@ -408,7 +408,7 @@ p{margin:0 0 1em;max-width:58ch}          /* кириллице нужна ст�
 
 <script>
   // Единственное место, где живёт адрес Телеграма. Подставить после согласования.
-  const TG_URL = '';
+  const TG_URL = 'https://t.me/Dimaads';
   for (const el of document.querySelectorAll('#tg, #tg2')) {
     if (TG_URL) { el.href = TG_URL; el.removeAttribute('aria-disabled'); }
     else { el.setAttribute('aria-disabled', 'true'); el.title = 'Адрес Телеграма подставим после согласования'; }
