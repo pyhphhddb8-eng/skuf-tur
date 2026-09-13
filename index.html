@@ -90,7 +90,9 @@ p{margin:0 0 1em;max-width:58ch}          /* кириллице нужна ст�
 .btn:focus-visible{outline:3px solid var(--pine);outline-offset:3px}
 .section--dark .btn:focus-visible{outline-color:var(--on-dark)}
 .btn[aria-disabled="true"]{opacity:.65;cursor:not-allowed;box-shadow:none}
-.btn[aria-disabled="true"]:hover{transform:none;background:var(--ember)}
+.btn[aria-disabled="true"]:hover{transform:none}
+.btn--tg[aria-disabled="true"]:hover{background:var(--ember)}
+.btn--ghost[aria-disabled="true"]:hover{border-color:var(--line)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -172,6 +174,74 @@ p{margin:0 0 1em;max-width:58ch}          /* кириллице нужна ст�
   padding-left:var(--s-4);margin:0;max-width:46ch;
 }
 @media (min-width:1024px){.price{grid-template-columns:.75fr 1.25fr;gap:clamp(32px,5vw,64px)}}
+
+/* --- Кто едет рядом --- */
+.facts{list-style:none;padding:0;margin:var(--s-8) 0;display:grid;gap:var(--gap)}
+.fact{color:var(--ink-soft)}
+.fact__num{
+  display:block;font-family:'Onest',ui-sans-serif,sans-serif;font-weight:700;
+  font-size:clamp(36px,26px + 3vw,56px);color:var(--ink);line-height:1.05;letter-spacing:-.02em;
+}
+.solo{
+  font-family:'Onest',ui-sans-serif,sans-serif;font-weight:700;
+  font-size:clamp(20px,16px + 1.4vw,31px);line-height:1.25;letter-spacing:-.01em;
+  border-left:4px solid var(--ember);padding-left:clamp(16px,2vw,24px);
+  margin:0 0 var(--gap);max-width:24ch;
+}
+.ph--wide{aspect-ratio:16/9;margin-top:var(--gap)}
+@media (min-width:768px){.facts{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1024px){.ph--wide{aspect-ratio:21/9}}
+
+/* --- Отзывы --- */
+.rating{display:grid;gap:var(--s-3);justify-items:start;margin-bottom:var(--s-12)}
+.rating__score{
+  font-family:'Onest',ui-sans-serif,sans-serif;font-weight:700;
+  font-size:clamp(56px,40px + 5vw,88px);line-height:1;margin:0;letter-spacing:-.03em;
+}
+.rating__score span{font-size:.28em;font-weight:500;color:var(--ink-soft);margin-left:var(--s-2);letter-spacing:0}
+.rating p{margin:0 0 var(--s-2)}
+.quotes{list-style:none;padding:0;margin:0;display:grid;gap:var(--gap)}
+.quote--empty{
+  border:2px dashed var(--line);border-radius:var(--r-lg);padding:var(--s-6);
+  color:var(--ink-soft);font-size:15px;min-height:128px;display:flex;align-items:center;
+}
+@media (min-width:768px){.quotes{grid-template-columns:repeat(3,1fr)}}
+
+/* --- Сомнения --- */
+.doubts{display:grid;gap:var(--s-8);margin:var(--s-8) 0 0}
+.doubt{border-top:1px solid var(--line);padding-top:var(--s-6)}
+.doubt__q{
+  font-family:'Onest',ui-sans-serif,sans-serif;font-weight:700;
+  font-size:clamp(18px,17px + .4vw,21px);margin-bottom:var(--s-2);line-height:1.3;
+}
+.doubt dd{margin:0;color:var(--ink-soft);max-width:52ch}
+@media (min-width:768px){.doubts{grid-template-columns:1fr 1fr;column-gap:clamp(32px,4vw,56px)}}
+
+/* --- Финал и подвал --- */
+.final__lead{color:#cfc6b6}
+.final .btn{margin-top:var(--s-4)}
+.final__honest{font-size:15px;color:var(--on-dark-soft);margin:var(--s-6) 0 0;max-width:48ch}
+.footer{background:var(--pine-deep);color:#cdc4b6;padding-block:clamp(32px,5vw,56px);font-size:15px}
+.footer p{margin:0;max-width:40ch}
+.footer strong{color:var(--on-dark)}
+.footer__grid{display:grid;gap:var(--s-6)}
+.footer__draft{color:var(--on-dark-soft)}
+.footer__src{color:#a9a094}
+@media (min-width:768px){.footer__grid{grid-template-columns:1fr 1fr 1fr;gap:var(--s-8)}}
+
+/* Вариант заглушки под дом и баню: силуэт домика с трубой на фоне леса */
+.ph--house{background:linear-gradient(in oklab,#dce6e3 0%,#e9e1d2 58%,#dccfb8 100%)}
+.ph--house::before{
+  height:58%;opacity:1;background:var(--pine);
+  clip-path:polygon(0 100%,0 62%,5% 48%,10% 62%,15% 44%,20% 62%,26% 46%,31% 62%,37% 50%,42% 62%,
+    48% 44%,53% 62%,59% 48%,64% 62%,70% 46%,75% 62%,81% 50%,86% 62%,92% 46%,97% 62%,100% 54%,100% 100%);
+}
+.ph--house::after{
+  height:64%;clip-path:none;background:transparent;
+  background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><g fill='%2324312a'><path d='M132 66 156 47l24 19z'/><rect x='139' y='64' width='34' height='36'/><rect x='148' y='41' width='7' height='12'/><path d='M52 50 94 18l42 32z'/><rect x='60' y='48' width='68' height='52'/><rect x='106' y='24' width='9' height='18'/></g><rect x='76' y='62' width='16' height='16' fill='%23e9e1d2'/><rect x='150' y='76' width='12' height='12' fill='%23e9e1d2'/></svg>");
+  background-repeat:no-repeat;background-position:bottom center;background-size:contain;
+}
+
 </style>
 </head>
 <body>
@@ -257,6 +327,95 @@ p{margin:0 0 1em;max-width:58ch}          /* кириллице нужна ст�
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Компания</p>
+      <h2>Кто едет рядом</h2>
+      <ul class="facts">
+        <li class="fact"><span class="fact__num">5–25</span> человек в группе</li>
+        <li class="fact"><span class="fact__num">20–40</span> лет участникам</li>
+        <li class="fact"><span class="fact__num">2–3</span> дня в горах</li>
+      </ul>
+      <p class="solo">Ехать одному — нормально. Почти все в первый раз едут именно так.</p>
+      <figure class="ph ph--wide ph--house" role="img" aria-label="Здесь будет фотография дома и бани от заказчика">
+        <figcaption class="ph__label">Здесь фото заказчика: дом и баня</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--warm">
+    <div class="wrap">
+      <p class="eyebrow">Отзывы</p>
+      <div class="rating">
+        <p class="rating__score">5,0<span>из 5</span></p>
+        <p>29 отзывов на Авито у компании ORDA. Оценку можно проверить самому — она не наша, а площадки.</p>
+        <a class="btn btn--ghost" id="avito" href="#" rel="noopener nofollow">Прочитать на Авито</a>
+      </div>
+      <ul class="quotes">
+        <li class="quote quote--empty">Место под отзыв. Появится, когда организатор разрешит процитировать.</li>
+        <li class="quote quote--empty">Место под отзыв. Появится, когда организатор разрешит процитировать.</li>
+        <li class="quote quote--empty">Место под отзыв. Появится, когда организатор разрешит процитировать.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Сомнения</p>
+      <h2>Что обычно мешает написать</h2>
+      <dl class="doubts">
+        <div class="doubt">
+          <dt class="doubt__q">Еду один и никого не знаю</dt>
+          <dd>Так едет большинство. К вечеру первого дня это перестаёт быть вопросом.</dd>
+        </div>
+        <div class="doubt">
+          <dt class="doubt__q">Я не спортивный</dt>
+          <dd>Спортивного в программе нет вообще. Максимум — прогулка в своём темпе, и та по желанию.</dd>
+        </div>
+        <div class="doubt">
+          <dt class="doubt__q">Не люблю обязательные активности</dt>
+          <dd>Обязательных нет ни одной. Можно весь день просидеть у печки — никто не придёт звать.</dd>
+        </div>
+        <div class="doubt">
+          <dt class="doubt__q">А если погода подведёт</dt>
+          <dd>Тогда баня, шашлыки и разговоры. План Б здесь мало чем отличается от плана А.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section--dark final">
+    <div class="wrap">
+      <h2>Если дочитали досюда — вам, кажется, туда</h2>
+      <p class="lead final__lead">Выезд из Краснодара на 2–3 дня. Ни ретрита, ни тренингов, ни отчётности перед группой.</p>
+      <a class="btn btn--tg" id="tg2" href="#" rel="noopener">Написать в Телеграм</a>
+      <p class="final__honest">Часть дат и форматов Иван сообщает только в личной переписке — поэтому кнопка, а не форма. Спросить быстрее.</p>
+    </div>
+  </section>
 </main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <p><strong>Скуф-тур</strong><br>Организатор — компания ORDA, Краснодар. Контактное лицо — Иван.</p>
+    <p class="footer__draft">Черновик страницы. Контакты и часть условий — заглушки до согласования с организатором. Страница закрыта от поисковых систем.</p>
+    <p class="footer__src">Фактура взята из открытого объявления на Авито № 7753483280 от 16 июля.</p>
+  </div>
+</footer>
+
+<script>
+  // Единственное место, где живёт адрес Телеграма. Подставить после согласования.
+  const TG_URL = '';
+  for (const el of document.querySelectorAll('#tg, #tg2')) {
+    if (TG_URL) { el.href = TG_URL; el.removeAttribute('aria-disabled'); }
+    else { el.setAttribute('aria-disabled', 'true'); el.title = 'Адрес Телеграма подставим после согласования'; }
+  }
+  // Адрес объявления на Авито. Подставить проверенный, выдуманный не годится.
+  const AVITO_URL = '';
+  const avito = document.getElementById('avito');
+  if (AVITO_URL) { avito.href = AVITO_URL; avito.target = '_blank'; }
+  else { avito.setAttribute('aria-disabled', 'true'); avito.title = 'Ссылку подставим после проверки'; }
+</script>
+
 </body>
 </html>
