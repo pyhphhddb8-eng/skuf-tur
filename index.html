@@ -95,11 +95,57 @@ p{margin:0 0 1em;max-width:58ch}          /* кириллице нужна ст�
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+/* --- Первый экран --- */
+.hero{padding-block:clamp(32px,7vw,72px) var(--step)}
+.hero__grid{display:grid;gap:var(--gap);align-items:center}
+.hero h1{margin-bottom:var(--s-6)}
+.hero .lead{margin-bottom:var(--s-8)}
+.hero__note{font-size:14px;color:var(--ink-soft);margin:var(--s-4) 0 0;max-width:40ch}
+/* Заглушка под фото: рисуется кодом, а не серый прямоугольник */
+.ph{
+  margin:0;position:relative;border-radius:var(--r-lg);overflow:hidden;
+  background:linear-gradient(in oklab,#cfe0e6 0%,#e7dfd0 60%,#dbcdb5 100%);
+  border:1px solid var(--line);box-shadow:var(--shadow-soft);
+  aspect-ratio:4/3;display:flex;align-items:flex-end;justify-content:center;
+}
+.ph::before{
+  content:"";position:absolute;inset:auto 0 0 0;height:64%;background:var(--pine);opacity:.92;
+  clip-path:polygon(0 100%,0 52%,16% 24%,29% 46%,44% 12%,62% 44%,74% 28%,100% 74%,100% 100%);
+}
+.ph::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:38%;background:#24312a;
+  clip-path:polygon(0 100%,0 62%,22% 38%,38% 60%,55% 30%,72% 58%,88% 40%,100% 66%,100% 100%);
+}
+.ph__label{
+  position:relative;z-index:1;margin:0 0 var(--s-4);padding:var(--s-2) var(--s-3);
+  border-radius:var(--r-pill);background:rgba(255,255,255,.93);color:#3a352e;
+  font-size:13px;font-weight:700;
+}
+@media (min-width:768px){.ph--hero{aspect-ratio:3/2}}
+@media (min-width:1024px){
+  .hero__grid{grid-template-columns:1.05fr .95fr;gap:clamp(32px,4vw,56px)}
+  .ph--hero{aspect-ratio:4/5}
+}
 </style>
 </head>
 <body>
 <main>
-  <!-- экраны добавляются задачами 2–9 -->
+
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="eyebrow">Краснодар · выезд на 2–3 дня</p>
+        <h1>Два дня в горах, где от вас ничего не требуется</h1>
+        <p class="lead">Забираем из центра города, привозим обратно. Группа до 25 человек. 17 000 ₽.</p>
+        <a class="btn btn--tg" id="tg" href="#" rel="noopener">Написать в Телеграм</a>
+        <p class="hero__note">Черновик страницы: адрес Телеграма подставим после согласования с организатором.</p>
+      </div>
+      <figure class="ph ph--hero" role="img" aria-label="Здесь будет фотография гор от заказчика">
+        <figcaption class="ph__label">Здесь фото заказчика: горы</figcaption>
+      </figure>
+    </div>
+  </section>
 </main>
 </body>
 </html>
