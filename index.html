@@ -127,6 +127,51 @@ p{margin:0 0 1em;max-width:58ch}          /* кириллице нужна ст�
   .hero__grid{grid-template-columns:1.05fr .95fr;gap:clamp(32px,4vw,56px)}
   .ph--hero{aspect-ratio:4/5}
 }
+
+/* --- Чего здесь не будет --- */
+.nots{list-style:none;padding:0;margin:var(--s-8) 0 0;display:grid;gap:var(--s-3)}
+.nots__item{
+  position:relative;padding:var(--s-4) var(--s-4) var(--s-4) var(--s-12);
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);font-weight:500;
+}
+.nots__item::before{
+  content:"";position:absolute;left:var(--s-6);top:50%;width:16px;height:2px;
+  background:var(--ember);transform:translateY(-50%);
+}
+@media (min-width:768px){.nots{grid-template-columns:1fr 1fr;column-gap:var(--gap)}}
+
+/* --- Что происходит за эти дни --- */
+.cards{list-style:none;padding:0;margin:var(--s-8) 0 0;display:grid;gap:var(--gap)}
+.card{
+  background:var(--paper-warm);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:clamp(20px,3vw,28px);
+}
+.card h3{margin-bottom:var(--s-2)}
+.card p{margin:0;color:var(--ink-soft);max-width:34ch}
+.card__icon{width:32px;height:32px;color:var(--ember);margin-bottom:var(--s-4);stroke-linecap:round;stroke-linejoin:round}
+@media (min-width:768px){.cards{grid-template-columns:1fr 1fr}}
+@media (min-width:1024px){
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .card:first-child{grid-column:span 2}
+}
+
+/* --- Что входит в цену --- */
+.price{display:grid;gap:var(--gap)}
+.price__num{
+  font-family:'Onest',ui-sans-serif,-apple-system,sans-serif;font-weight:700;
+  font-size:clamp(44px,32px + 4vw,72px);line-height:1;margin:0 0 var(--s-3);letter-spacing:-.03em;
+}
+.incl{list-style:none;padding:0;margin:0 0 var(--s-6);display:grid;gap:var(--s-3)}
+.incl li{position:relative;padding-left:var(--s-8)}
+.incl li::before{
+  content:"";position:absolute;left:0;top:.42em;width:16px;height:8px;
+  border-left:2px solid var(--ember);border-bottom:2px solid var(--ember);transform:rotate(-45deg);
+}
+.note{
+  font-size:15px;color:var(--ink-soft);border-left:3px solid var(--line);
+  padding-left:var(--s-4);margin:0;max-width:46ch;
+}
+@media (min-width:1024px){.price{grid-template-columns:.75fr 1.25fr;gap:clamp(32px,5vw,64px)}}
 </style>
 </head>
 <body>
@@ -144,6 +189,72 @@ p{margin:0 0 1em;max-width:58ch}          /* кириллице нужна ст�
       <figure class="ph ph--hero" role="img" aria-label="Здесь будет фотография гор от заказчика">
         <figcaption class="ph__label">Здесь фото заказчика: горы</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="section section--warm">
+    <div class="wrap">
+      <p class="eyebrow">Сначала о главном</p>
+      <h2>Чего здесь не будет</h2>
+      <p class="lead">Ни одного пункта из этого списка в поездке нет. Это не побочный эффект, а замысел.</p>
+      <ul class="nots">
+        <li class="nots__item">Ретрита</li>
+        <li class="nots__item">Тренингов и мастер-классов</li>
+        <li class="nots__item">Нетворкинга и обмена контактами</li>
+        <li class="nots__item">Разбора целей и планов на год</li>
+        <li class="nots__item">Психологов, коучей и наставников</li>
+        <li class="nots__item">Обязательных активностей по расписанию</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Программа</p>
+      <h2>Что происходит за эти дни</h2>
+      <p class="lead">Ничего из этого не обязательно. Всё это просто есть.</p>
+      <ul class="cards">
+        <li class="card">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 19 9 7l4 6 2.5-3.5L22 19z"/><path d="m7.5 12 2 2"/></svg>
+          <h3>Горы</h3><p>Смотреть на них. Больше ничего делать не нужно.</p>
+        </li>
+        <li class="card">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20h16"/><path d="M6 20v-7a6 6 0 0 1 12 0v7"/><path d="M9 6c0-1.5 1-2 1-3M13 6c0-1.5 1-2 1-3"/></svg>
+          <h3>Баня</h3><p>Долго и без расписания. Выходить, когда захочется.</p>
+        </li>
+        <li class="card">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6 21 11"/><circle cx="7.5" cy="8.8" r="1"/><path d="M9 13h6v4a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"/><path d="M12 13v-2"/></svg>
+          <h3>Канатная дорога</h3><p>Подняться наверх и постоять там подольше.</p>
+        </li>
+        <li class="card">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 16h16"/><path d="M6 16a6 6 0 0 1 12 0"/><path d="M9 6c0 1-1 1.5-1 2.5M12 5c0 1-1 1.5-1 2.5M15 6c0 1-1 1.5-1 2.5"/><path d="M7 20h10"/></svg>
+          <h3>Шашлыки</h3><p>Готовим вместе, едим не торопясь.</p>
+        </li>
+        <li class="card">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h11a3 3 0 0 1 3 3v3a3 3 0 0 1-3 3H9l-5 3z"/><path d="M18 9h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v3l-3-3"/></svg>
+          <h3>Долгие разговоры</h3><p>Те самые, на которые в будни не остаётся вечера.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--warm">
+    <div class="wrap price">
+      <div>
+        <p class="eyebrow">Цена</p>
+        <p class="price__num">17 000 ₽</p>
+        <p class="note">Уточняем у организатора, за человека это или за выезд: в объявлении не сказано, а выдумывать не будем.</p>
+      </div>
+      <div>
+        <h2>Что входит</h2>
+        <ul class="incl">
+          <li>Микроавтобус на восемь мест, забираем из центра Краснодара</li>
+          <li>Жильё: уютно, тепло, по-домашнему</li>
+          <li>Завтраки и ужины</li>
+          <li>Прогулки и катание</li>
+        </ul>
+        <p class="note">Что оплачивается сверх этого, Иван расскажет в переписке — список ещё уточняется.</p>
+      </div>
     </div>
   </section>
 </main>
