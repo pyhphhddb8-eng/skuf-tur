@@ -23,7 +23,7 @@ const html = `<!doctype html><meta charset="utf-8"><style>
 </style>
 <div class="sky"></div><div class="far"></div><div class="near"></div>
 <div class="t"><h1>Два дня в горах, где от вас ничего не требуется</h1>
-<p>Краснодар · 2–3 дня · 17 000 ₽</p></div>`;
+<p>Краснодар · 2–3 дня · 17 000 ₽ с человека</p></div>`;
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
